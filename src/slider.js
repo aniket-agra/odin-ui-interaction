@@ -33,17 +33,12 @@ function next() {
 }
 
 function jumpToImage(e) {
-  document.querySelectorAll(".jumpBtn").forEach(e => {
-    e.style.scale = "1";
-    e.style.backgroundColor = "white";
-  })
   let displayedImage = e.target.dataset.image;
   let imagesDiv = document.querySelector(".images");
   let container = document.querySelector(".container");
   imagesDiv.style.left = `calc(-${displayedImage} * (2rem + 228px))`;
   container.dataset.image = displayedImage;
-  e.target.style.backgroundColor = "grey";
-  e.target.style.scale = "1.2";
+  colorButton();
 }
 
 function createSlider() {
