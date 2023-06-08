@@ -19,6 +19,20 @@ function next() {
   container.dataset.image = displayedImage;
 }
 
+function jumpToImage(e) {
+  document.querySelectorAll(".jumpBtn").forEach(e => {
+    e.style.scale = "1";
+    e.style.backgroundColor = "white";
+  })
+  let displayedImage = e.target.dataset.image;
+  let imagesDiv = document.querySelector(".images");
+  let container = document.querySelector(".container");
+  imagesDiv.style.left = `calc(-${displayedImage} * (2rem + 228px))`;
+  container.dataset.image = displayedImage;
+  e.target.style.backgroundColor = "grey";
+  e.target.style.scale = "1.2";
+}
+
 function createSlider() {
   let bodyElem = document.querySelector("body");
   let container = document.createElement("div");
@@ -57,9 +71,28 @@ function createSlider() {
   let nextBtn = document.createElement("button");
   nextBtn.textContent = "Next";
   nextBtn.addEventListener("click", next);
+  let jumpDiv = document.createElement("div");
+  jumpDiv.classList.add("jump");
+  jumpDiv.style.position = "absolute";
+  jumpDiv.style.display = "flex";
+  jumpDiv.style.justifyContent = "space-around";
+  for (let i = 0; i < 10; i++) {
+    let jumpBtn = document.createElement("button");
+    jumpBtn.classList.add("jumpBtn");
+    jumpBtn.setAttribute("data-image", `${i}`);
+    jumpBtn.addEventListener("click", jumpToImage);
+    jumpBtn.style.color = "white";
+    jumpBtn.style.borderRadius = "50%";
+    jumpBtn.style.border = "2px solid black";
+    jumpBtn.style.backgroundColor = "white";
+    jumpBtn.style.marginRight = "0.5rem";
+    jumpBtn.style.minHeight = "1rem";
+    jumpDiv.appendChild(jumpBtn);
+  }
   btnDiv.appendChild(prevBtn);
   btnDiv.appendChild(nextBtn);
   bodyElem.appendChild(btnDiv);
+  bodyElem.appendChild(jumpDiv);
 }
 
 export {createSlider};
