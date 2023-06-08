@@ -1,3 +1,14 @@
+function colorButton() {
+  document.querySelectorAll(".jumpBtn").forEach(e => {
+    e.style.scale = "1";
+    e.style.backgroundColor = "white";
+  })
+  let displayedImage = document.querySelector(".container").dataset.image;
+  let displayedBtn = document.querySelector(`.jumpBtn[data-image="${displayedImage}"]`);
+  displayedBtn.style.backgroundColor = "grey";
+  displayedBtn.style.scale = "1.2";
+}
+
 function previous() {
   let imagesDiv = document.querySelector(".images");
   let container = document.querySelector(".container");
@@ -8,6 +19,7 @@ function previous() {
   displayedImage %= 10;
   imagesDiv.style.left = `calc(-${displayedImage} * (2rem + 228px))`;
   container.dataset.image = displayedImage;
+  colorButton();
 }
 
 function next() {
@@ -17,6 +29,7 @@ function next() {
   displayedImage = (displayedImage + 1) % 10;
   imagesDiv.style.left = `calc(-${displayedImage} * (2rem + 228px))`;
   container.dataset.image = displayedImage;
+  colorButton();
 }
 
 function jumpToImage(e) {
@@ -95,6 +108,7 @@ function createSlider() {
   btnDiv.appendChild(nextBtn);
   bodyElem.appendChild(btnDiv);
   bodyElem.appendChild(jumpDiv);
+  colorButton();
 }
 
 export {createSlider};
