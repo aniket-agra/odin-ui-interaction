@@ -15,7 +15,6 @@ function next() {
   let container = document.querySelector(".container");
   let displayedImage = Number(container.dataset.image);
   displayedImage = (displayedImage + 1) % 10;
-  console.log(displayedImage);
   imagesDiv.style.left = `calc(-${displayedImage} * (2rem + 228px))`;
   container.dataset.image = displayedImage;
 }
