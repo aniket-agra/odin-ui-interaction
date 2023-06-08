@@ -1,0 +1,5 @@
+function createSlider() {
+
+}
+
+export {createSlider};
