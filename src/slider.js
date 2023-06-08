@@ -74,6 +74,8 @@ function createSlider() {
   let jumpDiv = document.createElement("div");
   jumpDiv.classList.add("jump");
   jumpDiv.style.position = "absolute";
+  jumpDiv.style.top = "calc(11rem + 250px)";
+  jumpDiv.style.left = "40%";
   jumpDiv.style.display = "flex";
   jumpDiv.style.justifyContent = "space-around";
   for (let i = 0; i < 10; i++) {
