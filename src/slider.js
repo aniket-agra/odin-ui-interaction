@@ -1,3 +1,11 @@
+function previous() {
+
+}
+
+function next() {
+
+}
+
 function createSlider() {
   let bodyElem = document.querySelector("body");
   let container = document.createElement("div");
@@ -24,6 +32,18 @@ function createSlider() {
   imagesDiv.style.top = "1rem";
   container.appendChild(imagesDiv);
   bodyElem.appendChild(container);
+  let btnDiv = document.createElement("div");
+  btnDiv.style.display = "flex";
+  btnDiv.style.justifyContent = "space-around";
+  let prevBtn = document.createElement("button");
+  prevBtn.textContent = "Previous";
+  prevBtn.addEventListener("click", previous);
+  let nextBtn = document.createElement("button");
+  nextBtn.textContent = "Next";
+  nextBtn.addEventListener("click", next);
+  btnDiv.appendChild(prevBtn);
+  btnDiv.appendChild(nextBtn);
+  bodyElem.appendChild(btnDiv);
 }
 
 export {createSlider};
