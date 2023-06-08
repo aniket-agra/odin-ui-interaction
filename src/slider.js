@@ -13,6 +13,8 @@ function createSlider() {
     imgElem.style.border = "2px solid red";
     imagesDiv.appendChild(imgElem);
   }
+  imagesDiv.style.position = "absolute";
+  imagesDiv.style.top = "10rem";
   bodyElem.appendChild(imagesDiv);
 }
 
