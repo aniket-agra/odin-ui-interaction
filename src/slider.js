@@ -4,8 +4,8 @@ function createSlider() {
   container.style.position = "absolute";
   container.style.top = "9rem";
   container.style.left = "calc(2rem + 224px)";
-  container.style.minWidth = "calc(2rem + 224px)";
-  container.style.minHeight = "calc(2rem + 224px)";
+  container.style.minWidth = "calc(2rem + 228px)";
+  container.style.minHeight = "calc(2rem + 228px)";
   container.style.border = "2px solid green";
   let imagesDiv = document.createElement("div");
   imagesDiv.style.display = "flex";
