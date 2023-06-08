@@ -1,5 +1,13 @@
 function previous() {
-
+  let imagesDiv = document.querySelector(".images");
+  let container = document.querySelector(".container");
+  let displayedImage = Number(container.dataset.image);
+  displayedImage -= 1;
+  while (displayedImage < 0) 
+    displayedImage += 10;
+  displayedImage %= 10;
+  imagesDiv.style.left = `calc(-${displayedImage} * (2rem + 228px))`;
+  container.dataset.image = displayedImage;
 }
 
 function next() {
