@@ -3,12 +3,19 @@ function previous() {
 }
 
 function next() {
-
+  let imagesDiv = document.querySelector(".images");
+  let container = document.querySelector(".container");
+  let displayedImage = Number(container.dataset.image);
+  displayedImage = (displayedImage + 1) % 10;
+  console.log(displayedImage);
+  imagesDiv.style.left = `calc(-${displayedImage} * (2rem + 228px))`;
+  container.dataset.image = displayedImage;
 }
 
 function createSlider() {
   let bodyElem = document.querySelector("body");
   let container = document.createElement("div");
+  container.classList.add("container");
   container.style.position = "absolute";
   container.style.top = "9rem";
   container.style.left = "calc(2rem + 224px)";
@@ -16,6 +23,7 @@ function createSlider() {
   container.style.minHeight = "calc(2rem + 228px)";
   container.style.border = "2px solid green";
   let imagesDiv = document.createElement("div");
+  imagesDiv.classList.add("images");
   imagesDiv.style.display = "flex";
   for (let i = 0; i < 10; i++) {
     let imgElem = document.createElement("img");
@@ -31,6 +39,7 @@ function createSlider() {
   imagesDiv.style.position = "absolute";
   imagesDiv.style.top = "1rem";
   container.appendChild(imagesDiv);
+  container.setAttribute("data-image", "0");
   bodyElem.appendChild(container);
   let btnDiv = document.createElement("div");
   btnDiv.style.display = "flex";
